@@ -2,11 +2,16 @@ const express = require('express');
 const app = express();
 const port = 8080;
 
+app.set('view engine','hbs');
+
 //Servir contenido estático
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-    res.send('Hello world');
+    res.render('home',{
+        nombre:'Jorge Miranda',
+        titulo:'Curso de Node'
+    });
 });
 
 
